@@ -6,7 +6,7 @@ var server = require('https'),
     path = require('path'),
     fs = require('fs');
 
-var port = 9001;
+var port = 3000;
 
 var key = fs.readFileSync(path.join(__dirname, './certs/private.key'));
 var cert = fs.readFileSync(path.join(__dirname, './certs/certificate.crt'));
