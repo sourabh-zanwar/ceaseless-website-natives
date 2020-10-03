@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--<link rel="stylesheet" href="/style.css">-->
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+		<style>
+			html { 
+    background-color: #f6f5f5;
+    font-family: 'Raleway';
+    color: #474747;
+    /**background-size:     100% auto;
+    background-repeat:   no-repeat;
+    background-position: center center;**/
+
+}
+
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    margin: 0% 0% 0% 0%;
+    text-align: center;
+}
+
+
+hr {
+    border: 0;
+    border-top: 1px solid white;
+    margin: 2% 2% 2% 2%;
+}
+
+div {
+    margin-left: 20px;
+    margin-top: 2%;
+    margin-right: 20px;
+    margin-bottom: 2;
+}
+
+
+.buttonrec {
+    color: white;
+    height:50px;
+    width:125px;
+    font-size: large;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.500);
+    border: 2px solid white;
+    margin: 2% 0% 2% 0%;
+}
+
+.button_next {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #3b8beb;;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 5px;
+  width: 120px;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin: 5px;
+  float: right;
+}
+
+.button_next[disabled] {
+  background-color: rgb(143, 143, 143);
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+.button_next[disabled] span{
+  cursor: not-allowed;
+}
+
+.button_next span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+
+.button_next span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.4s;
+}
+
+.button_next:hover span {
+  padding-right: 25px;
+}
+
+.button_next:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.submit_b {
+  background-color: #3b8beb;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  font-size: 28px;
+  padding: 5px;
+  width: 120px;
+  margin: 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  float: left;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #3b8beb;
+  float: left;
+}
+
+.button1:hover {
+  background-color: #3b8beb;
+  color: white;
+}
+
+.button_start {
+  background: url(/images/rec.png);
+  background-color: transparent;
+  height: 120px;
+  width: 120px;
+  background-size: contain;
+  border-radius: 50%;
+  border-width:3px;  
+  border-style:double;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+.button_start:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button_start[disabled] {
+  background: url(/images/rec-d.png);
+  background-color: transparent;
+  height: 120px;
+  width: 120px;
+  background-size: contain;
+  border-radius: 50%;
+  border-width:3px;  
+  border-style:double;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.button_stop {
+  background: url(/images/stop.png);
+  background-color: transparent;
+  height: 120px;
+  width: 120px;
+  background-size: contain;
+  border-radius: 50%;
+  border-width:3px;  
+  border-style:double;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.button_stop:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button_stop[disabled] {
+  background: url(/images/stop-d.png);
+  background-color: transparent;
+  height: 120px;
+  width: 90px;
+  background-size: contain;
+  border: 2px outset;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.button_re {
+  background: url(/images/redo.png);
+  background-color: transparent;
+  height: 120px;
+  width: 120px;
+  background-size: contain;
+  border-radius: 50%;
+  border-width:3px;  
+  border-style:double;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.button_re:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button_re[disabled] {
+  background: url(/images/redo-d.png);
+  background-color: transparent;
+  height: 120px;
+  width: 120px;
+  background-size: contain;
+  border-radius: 50%;
+  border-width:3px;  
+  border-style:double;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+  table-layout : fixed;
+  vertical-align: baseline;
+}
+
+
+.fr {
+    float: right;
+}
+
+.fl {
+  float: left;
+  text-align: left;
+}
+
+h4 {
+  text-align: left;
+}
+
+
+/* Style the header */
+.header {
+    padding: 2px 2px;
+    background: #3b8beb;
+    color: #f1f1f1;
+    padding-top: 8px;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    
+  }
+  
+  /* Page content */
+  .content {
+    padding: 16px;
+  }
+  
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+video {
+    border: 1px solid rgb(15, 158, 238); width: 30%;
+}
+button[disabled], input[disabled] { color: rgb(143, 143, 143); cursor:not-allowed;}
+div[disabled] {display: none;}
+		</style>
+        <meta charset="utf-8" />
+        <title>CEASELESS</title>
+        <script>
+            if (location.href.indexOf('file:') == 0) {
+                document.write('<h1 style="color:red;">Please load this HTML file on HTTP or HTTPS.</h1>');
+            }
+        </script>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+        <div id="page0" style="position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);">
+            <strong style="font-size: 120px; color: #3b8beb; margin-bottom: 5px;" >ceaseless</strong>
+			<br>
+            <form id="form" onsubmit="return false;" style="font-size:x-large;">
+                <input type="text" id="userInput" placeholder="Please Enter your MTurk WorkerID" style="color: rgb(82, 82, 82); font-size: 16px;
+                padding: 10px; width: 50%; border: ridge;vertical-align:middle;"/>
+                <button class="button_next" style="vertical-align:middle; float: none;" onclick="next_p1()"><span>next</span></button>
+            </form>
+        </div>
+
+        <div class="header" id="myHeader" style="font-size: 40px; margin:0px 0px 10px 0px; text-align: left; font-family: 'Montserrat'; display: none;">
+            <strong>ceaseless</strong>
+        </div>
+
+		<div id="page1" style="display: none;">
+			
+			<br>
+			<div style="font-size: x-large; margin: 2% 10% 2% 10%; text-align: left;">
+				<strong><u>Please choose one of the following topics to speak about:</u></strong><br><br>
+				<form name='debate'>
+				<table style="border: none;">
+					<tr style="border: none;">
+						<td style="border: none;">
+							<input type="radio" name="topic" value="topic1">
+							<strong style="color: black">Topic 1: Climate change is the greatest threat facing humanity today. </strong><br>
+						</td>
+					</tr>
+					<tr style="border: none;">
+						<td style="border: none;">
+							<input type="radio" name="topic" value="topic2">
+							<strong style="color:black">Topic 2: People should be legally required to get vaccines. </strong><br>
+						</td>
+					</tr>
+					<tr style="border: none;">
+						<td style="border: none;">
+							<input type="radio" name="topic" value="topic3">
+							<strong style="color: black">Topic 3: The development of artificial intelligence will help humanity. </strong><br>
+						</td>
+					</tr>
+				</table>
+				</form>     
+			</div>
+
+			<button class="button_next" style="vertical-align:middle" onclick="next_p2()"><span>next</span></button>
+			<br>
+		</div>      
+
+		<div id="page2" style="display: none;">
+			<div id = 'p2'>
+				Please make sure that your voice is clear and atleast on-par with the following sample audio clip. <br> <br>
+				<audio controls>
+					<source src="/images/sample.mp3" type="audio/mpeg">
+				</audio><br>
+			<hr>
+			</div>
+                        <button id="p2" class="button_next" style="vertical-align:middle" onclick="next_p2a()"><span>next</span></button>
+			<p><video style="visibility: hidden;"></video></p>
+			<br>
+               </div>
+		<div id="page2a" style="display: none;">
+			<div id= 'p'>
+				<p id='top_name' style="font-size: 32px; color: black;"></p>
+				<p id='recorded' style="font-size: 32px; color: red; visibility: hidden;">You're now being recorded</p>               
+				<button id="btn-start-recording" class="button_start"></button>
+				<button id="btn-stop-recording" disabled="" style="display: none;" class="button_stop"><strong></strong></button>
+				<button id="again" class="button_re" onclick="recordAgain()" style="display: none;" disabled=""><strong></strong></button>
+			</div>
+			<button id="p3" class="button_next" disabled="" style="vertical-align:middle" onclick="next_p3()"><span>next</span></button>
+			<p><video style="visibility: hidden;"></video></p>
+			<br>
+		</div>
+
+
+		
+		<div id="page3" style="display: none; margin: 5%;">
+		<form name="leap" action="javascript:null">
+		<fieldset>
+		<legend>Basic</legend>
+		<br>
+		<table style="width: 100%;">
+		<tr>
+		<td>
+		<label for="age" class="fl">Age:</label>
+		<select name ="age" class ="fr" >
+			<option disabled selected value> -- select -- </option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+		</select><br/>
+		</td>
+		</tr>
+
+		<tr>
+		<td>	
+		<label for="gender" class="fl">Gender:</label>
+		<select name ="gender" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="m">Male</option>
+			<option value="f">Female</option>
+			<option value="d">Diverse</option>
+		</select><br/>
+		</td>
+		</tr>
+
+		<tr>
+		<td>	
+		<label for="edu" class="fl">Educational level (field and degree)</label>
+		<input name="edu" type="text" placeholder="eg. MSc Computer Science" class="fr" style="width:fit-content;"/> <br /> 
+		</td>
+		</tr>
+		</table>
+		<br/>
+		<table>
+		<tr>
+		<td>
+		<label for="l_dom" class="fl">1. Please list all the languages you know in order of dominance (upto 5):</label><br /> 
+		<table>
+			<tr>
+			<td>
+				<input name="l_dom_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<input name="l_dom_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input name="l_dom_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+		</tr>
+		<tr><td>
+				<input name="l_dom_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+		</tr>
+		<tr><td>
+				<input name="l_dom_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			</tr>
+		</table>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>	
+		<label for="l_acq" class="fl">2. Please list all the languages you know in order of acquisition (your native language first):</label><br /> 
+		<table>
+			<tr>
+			<td>
+				<input name="l_acq_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<input name="l_acq_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input name="l_acq_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+		</tr>
+		<tr><td>
+				<input name="l_acq_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+		</tr>
+		<tr><td>
+				<input name="l_acq_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			</tr>
+		</table>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label for="l_per" class="fl">3. Please list what percentage of time you are currently and on average exposed to each language. (Please list the languages as in the two questions above. Your percentages should add up to 100%):</label><br /> 
+		<table>
+			<tr>
+			<td>
+				<input name="l_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			<td>
+				<input name="l_1_p" type="number" placeholder="exposure in %" value=" ">
+			</td>
+			</tr>
+			</tr>
+			<tr>
+			<td>
+				<input name="l_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			<td>
+				<input name="l_2_p" type="number" placeholder="exposure in %" value=" ">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input name="l_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			<td>
+				<input name="l_3_p" type="number" placeholder="exposure in %" value=" ">
+			</td>
+		</tr>
+		<tr><td>
+				<input name="l_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			<td>
+				<input name="l_4_p" type="number" placeholder="exposure in %" value=" ">
+			</td>
+		</tr>
+		<tr><td>
+				<input name="l_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+			</td>
+			<td>
+				<input name="l_5_p" type="number" placeholder="exposure in %" value=" ">
+			</td>
+			</tr>
+		</table>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<label for="edu_y" class="fl">4. How many years of formal education do you have? (from elementary school until the German Abitur plus the years studied at a tertiary education institution such as university or university of applied sciences)</label><br /> 
+		<input name="edu_y" type="number" placeholder="eg. 16" class="fr"/> <br /> 
+		</td>
+		</tr>	
+		
+		<tr>
+		<td>
+		<label for="e_grade" class="fl">5. If you remember: What was the last grade you got in English (language) class? (Please apply the German grading system from 1 - 6 and/or the German grading system in upper secondary education from 15 to 0 points):</label>
+		<select name ="e_grade" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1+">1+</option>
+			<option value="1">1</option>
+			<option value="1-">1-</option>
+			<option value="2+">2+</option>
+			<option value="2">2</option>
+			<option value="2-">2-</option>
+			<option value="3+">3+</option>
+			<option value="3">3</option>
+			<option value="3-">3-</option>
+			<option value="4+">4+</option>
+			<option value="4">4</option>
+			<option value="4-">4-</option>
+			<option value="5+">5+</option>
+			<option value="5">5</option>
+			<option value="5-">5-</option>
+		</select><br/>
+		</td>
+		</tr>
+		</table>
+		<br>
+		</fieldset>
+		<br>
+		<fieldset>
+		<legend>Concerning your knowledge of English:</legend>
+		<table style="width:100%; border:none;">
+		<tr>
+		<td style="border:none;">
+		<h4>1. Please Enter your <strong>Age (in years)</strong> when you:</h4>
+		<table>
+		<tr>
+		<td>
+		<label for="age_acq" class="fl">Began acquiring</label>
+		<input name="age_acq" type="number" placeholder="eg. 16" class="fr"/> <br />
+		</td>
+		</tr>
+	
+		<tr>
+		<td><label for="age_flu" class="fl">Became fluent</label>
+		<input name="age_flu" type="number" placeholder="eg. 16" class="fr"/> <br /> 
+		</td>
+		</tr>
+
+		<tr>
+		<td>
+		<label for="age_read" class="fl">Began reading</label>
+		<input name="age_read" type="number" placeholder="eg. 16" class="fr"/> <br /> 
+		</td>
+		</tr>
+
+		<tr>
+		<td>
+		<label for="age_read_flu" class="fl">Became fluent in reading</label>
+		<input name="age_read_flu" type="number" placeholder="eg. 16" class="fr"/> <br /> 
+		</td>
+		</tr>
+		</table>
+		</td>
+		
+		
+		<td style="border:none;">
+		<h4>2. On a scale from zero to ten, please select your level of proficiency in speaking, listening, reading and writing your native language:</h4>
+		
+		<table>
+		<tr>
+		<td>
+		<label for="speak" class="fl">Speaking:</label>
+		<select name ="speak" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+
+		<tr>
+		<td>	
+		<label for="listen" class="fl">Listening</label>
+		<select name ="listen" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+	
+			<tr>
+			<td>	
+			<label for="read" class="fl">Reading</label>
+			<select name ="read" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select><br/>
+			</td>
+			</tr>
+
+				<tr>
+				<td>	
+				<label for="write" class="fl">Writing</label>
+				<select name ="write" class="fr">
+					<option disabled selected value> -- select -- </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select><br/>
+				</td>
+				</tr>
+		</table>
+		</td>
+		</tr>
+		</table>
+		
+		
+		<h4>4. On a scale from zero to ten, please select how much of the following factors contribute to you learning English:</h4>
+		<table style="width:100%; border:none;">
+		<tr>
+		<td>
+		<label for="learn_friends" class="fl">Interacting with friends:</label>
+		<select name ="learn_friends" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		
+		<td>
+		<label for="learn_family" class="fl">Interacting with family:</label>
+		<select name ="learn_family" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<label for="learn_read" class="fl">Reading:</label>
+		<select name ="learn_read" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		
+		<td>
+		<label for="learn_class" class="fl">Classroom instruction:</label>
+		<select name ="learn_class" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+		<tr>
+
+		<td>
+		<label for="learn_work" class="fl">Workplace:</label>
+		<select name ="learn_work" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+
+		<td>
+		<label for="learn_app" class="fl">Self-instruction/ language learning systems (Babbel, Duolingo, Memrise, etc.):</label>
+		<select name ="learn_app" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+
+		<tr>
+		<td>
+		<label for="learn_game" class="fl">Video Gaming:</label>
+		<select name ="learn_game" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+
+		<td>
+		<label for="learn_tv" class="fl">Watching TV or streaming (Netflix, Amazon Prime, etc.):</label>
+		<select name ="learn_tv" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+
+		<tr>
+		<td>
+		<label for="learn_music" class="fl">Listening to music/radio:</label>
+		<select name ="learn_music" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+
+		<td>
+		<label for="learn_social" class="fl">Social media (Facebook, Instagram, YouTube, Twitter, etc.):</label>
+		<select name ="learn_social" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+		</table>
+		<br>
+		</fieldset>	
+			</form>
+			<button onclick="LEAPsaveValues();" id="submit_p4" class="submit_b button1">submit</button>
+			<button id="p4"class="button_next" style="vertical-align:middle" disabled="" onclick="next_p3a()"><span>next</span></button>
+		</div>
+
+		<div id="page3a" style="display: none; margin: 5%;">
+			<form name="lsbq" action="javascript:null">
+
+		<fieldset>
+		<legend>English Reading Habits Questionnaire</legend>
+		
+		
+		<h4>1. Please tick the average time you spend reading English per week in the context of the following media.</h4>
+		<table style="width: 100%;">
+			<thead>
+				<tr>
+					<th></th>
+					<th>No Time at all </th>
+					<th>Less than an hour</th>
+					<th>1-4 Hours</th>
+					<th>4-7 hours </label></th>
+					<th>7-10 hours</th>
+                                        <th>More than 10 hours</th>
+				</tr>
+				<thead>
+		<tr>
+			<td>Books</td>
+			<td><input type="radio" name="q1" value="1"></td>
+			<td><input type="radio" name="q1" value="2"> </td>
+			<td><input type="radio" name="q1" value="3"></td>
+			<td><input type="radio" name="q1" value="4"> </td>
+			<td><input type="radio" name="q1" value="5"> </td>
+            <td><input type="radio" name="q1" value="6"> </td>
+		</tr>
+		<tr>
+			<td>Magazines</td>
+			<td><input type="radio" name="q2" value="1"></td>
+			<td><input type="radio" name="q2" value="2"> </td>
+			<td><input type="radio" name="q2" value="3"></td>
+			<td><input type="radio" name="q2" value="4"> </td>
+			<td><input type="radio" name="q2" value="5"> </td>
+        	<td><input type="radio" name="q1" value="6"> </td>
+		</tr>
+		<tr>
+			<td>Videogames (PC & console)</td>
+			<td><input type="radio" name="q3" value="1"></td>
+			<td><input type="radio" name="q3" value="2"> </td>
+			<td><input type="radio" name="q3" value="3"></td>
+			<td><input type="radio" name="q3" value="4"> </td>
+			<td><input type="radio" name="q3" value="5"> </td>
+            <td><input type="radio" name="q1" value="6"> </td>
+		</tr>
+		<tr>
+			<td>Social media (e.g. Facebook, Twitter, WhatsApp)</td>
+			<td><input type="radio" name="q4" value="1"></td>
+			<td><input type="radio" name="q4" value="2"> </td>
+			<td><input type="radio" name="q4" value="3"></td>
+			<td><input type="radio" name="q4" value="4"> </td>
+			<td><input type="radio" name="q4" value="5"> </td>
+            <td><input type="radio" name="q1" value="6"> </td>
+		</tr>
+                <tr>
+			<td>Smartphone apps (games etc.)</td>
+			<td><input type="radio" name="q5" value="1"></td>
+			<td><input type="radio" name="q5" value="2"> </td>
+			<td><input type="radio" name="q5" value="3"></td>
+			<td><input type="radio" name="q5" value="4"> </td>
+			<td><input type="radio" name="q5" value="5"> </td>
+            <td><input type="radio" name="q1" value="6"> </td>
+		</tr>
+                 <tr>
+			<td>Websites (e.g. articles for web-searches)</td>
+			<td><input type="radio" name="q6" value="1"></td>
+			<td><input type="radio" name="q6" value="2"> </td>
+			<td><input type="radio" name="q6" value="3"></td>
+			<td><input type="radio" name="q6" value="4"> </td>
+			<td><input type="radio" name="q6" value="5"> </td>
+            <td><input type="radio" name="q1" value="6"> </td>
+		</tr>
+		</table>
+		<h4>2. Please tick how much time you have spent reading English in the context of the following media in the past week.</h4>
+		<table style="width: 100%;">
+			<thead>
+				<tr>
+					<th></th>
+					<th>No Time at all </th>
+					<th>Less than an hour</th>
+					<th>1-4 Hours</th>
+					<th>4-7 hours </label></th>
+					<th>7-10 hours</th>
+                                        <th>More than 10 hours</th>
+				</tr>
+				<thead>
+		<tr>
+			<td>Books</td>
+			<td><input type="radio" name="q11" value="1"></td>
+			<td><input type="radio" name="q11" value="2"> </td>
+			<td><input type="radio" name="q11" value="3"></td>
+			<td><input type="radio" name="q11" value="4"> </td>
+			<td><input type="radio" name="q11" value="5"> </td>
+                        <td><input type="radio" name="q11" value="6"> </td>
+		</tr>
+		<tr>
+			<td>Magazines</td>
+			<td><input type="radio" name="q12" value="1"></td>
+			<td><input type="radio" name="q12" value="2"> </td>
+			<td><input type="radio" name="q12" value="3"></td>
+			<td><input type="radio" name="q12" value="4"> </td>
+			<td><input type="radio" name="q12" value="5"> </td>
+                        <td><input type="radio" name="q12" value="6"> </td>
+		</tr>
+		<tr>
+			<td>Videogames (PC & console)</td>
+			<td><input type="radio" name="q13" value="1"></td>
+			<td><input type="radio" name="q13" value="2"> </td>
+			<td><input type="radio" name="q13" value="3"></td>
+			<td><input type="radio" name="q13" value="4"> </td>
+			<td><input type="radio" name="q13" value="5"> </td>
+                        <td><input type="radio" name="q13" value="6"> </td>
+		</tr>
+		<tr>
+			<td>Social media (e.g. Facebook, Twitter, WhatsApp)</td>
+			<td><input type="radio" name="q14" value="1"></td>
+			<td><input type="radio" name="q14" value="2"> </td>
+			<td><input type="radio" name="q14" value="3"></td>
+			<td><input type="radio" name="q14" value="4"> </td>
+			<td><input type="radio" name="q14" value="5"> </td>
+                        <td><input type="radio" name="q14" value="6"> </td>
+		</tr>
+                <tr>
+			<td>Smartphone apps (games etc.)</td>
+			<td><input type="radio" name="q15" value="1"></td>
+			<td><input type="radio" name="q15" value="2"> </td>
+			<td><input type="radio" name="q15" value="3"></td>
+			<td><input type="radio" name="q15" value="4"> </td>
+			<td><input type="radio" name="q15" value="5"> </td>
+                        <td><input type="radio" name="q15" value="6"> </td>
+		</tr>
+                 <tr>
+			<td>Websites (e.g. articles for web-searches)</td>
+			<td><input type="radio" name="q16" value="1"></td>
+			<td><input type="radio" name="q16" value="2"> </td>
+			<td><input type="radio" name="q16" value="3"></td>
+			<td><input type="radio" name="q16" value="4"> </td>
+			<td><input type="radio" name="q16" value="5"> </td>
+                        <td><input type="radio" name="q16" value="6"> </td>
+		</tr>
+		</table>
+		<h4>3. Please tick how much you read in English compared to your friends</h4>
+		<table style="width: 100%;">
+			<thead>
+				<tr>
+					<th>A lot less </th>
+					<th>A little less</th>
+					<th>About the same</th>
+					<th>A little more </label></th>
+					<th>A lot more</th>
+                                        
+				</tr>
+				<thead>
+                <tr>
+						<td><input type="radio" name="a1" value="1"></td>
+                        <td><input type="radio" name="a1" value="2"></td>
+                        <td><input type="radio" name="a1" value="3"></td>
+                        <td><input type="radio" name="a1" value="4"></td>
+                        <td><input type="radio" name="a1" value="5"></td>
+                </tr>
+                </table>
+		</fieldset>
+		
+		
+			</form>
+			<button onclick="LSBQsaveValues();" id="submit_p4a" class="submit_b button1">submit</button>
+			<button id="p4a" class="button_next" style="vertical-align:middle" disabled="" onclick="next_p3b()"><span>next</span></button>
+		</div>
+
+		<div id="page3b" style="display: none; margin: 5%;">	
+			<form name="bfi" action="javascript:null">
+		<fieldset>
+		<legend>PERSONALITY-QUESTIONNAIRE</legend>
+		<h4> INSTRUCTIONS </h4>
+		<p>Here are a number of characteristics that may or may not apply to you. For example, do you
+		agree that you are someone who likes to spend time with others? Please SELECT a number next to each
+		statement to indicate the extent to which you agree or disagree with that statement.</p>
+		<center>
+		<table style="width:70%">
+			<thead>
+				<tr>
+								<th>1.
+								Disagree
+								strongly</th>
+					<th>2.
+								Disagree
+								a little</th>
+					<th>3.
+								Neither agree
+								nor disagree</th>
+								<th>4.
+								Agree
+								a little</th>
+								<th>5.
+								Agree
+								strongly</th>
+					
+				</tr>
+				<thead>
+		</table>
+		</center>
+		<table style="width:100%; border:none;">
+		<h4> I see myself as someone who .... </h4>
+			<tr>
+			<td>
+			<label for="q1">is talkative:</label>
+			<select name ="q1" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+			
+			<td>
+			<label for="q2">tends to find fault with others:</label>
+			<select name ="q2" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+			</tr>
+		
+			
+			<tr>
+			<td>
+			<label for="q3">does a thorough job:</label>
+			<select name ="q3" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>    
+			<td>
+			<label for="q4">is depressed, blue:</label>
+			<select name ="q4" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+			</tr>
+		
+		
+			<tr>
+			<td>
+			<label for="q5">is original, comes up with new ideas:</label>
+			<select name ="q5" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+					</select><br/>
+			</td>
+			<td>
+			<label for="q6">is reserved:</label>
+			<select name ="q6" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+			</tr>
+		
+		
+			<tr>
+			<td>
+			<label for="q7">is helpful and unselfish with others:</label>
+			<select name ="q7" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+		
+			<td>
+			<label for="q8">can be somewhat careless:</label>
+			<select name ="q8" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+		
+				<tr>
+				<td>
+			<label for="q9">is relaxed, handles stress well:</label>
+			<select name ="q9" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q10">Is curious about many different things:</label>
+			<select name ="q10" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+			</tr>
+		
+		
+			<tr>
+				<td>
+			<label for="q11">Is curious about many different things:</label>
+			<select name ="q11" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+			<td>
+			<label for="q12">is full of energy:</label>
+			<select name ="q12" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+			</tr>
+			<tr>
+			<td>
+			
+			
+			<label for="q13">starts quarrels with others:</label>
+			<select name ="q13" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				<td>
+			<label for="q14">is a reliable worker:</label>
+			<select name ="q14" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+			<tr>
+			<td>
+			<label for="q15">can be tense:</label>
+			<select name ="q15" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+			<td>
+			<label for="q16">is ingenious, a deep thinker:</label>
+			<select name ="q16" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+				<tr>
+				<td>
+			<label for="q17">generates a lot of enthusiasm:</label>
+			<select name ="q17" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q18">has a forgiving nature:</label>
+			<select name ="q18" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+			<tr>
+				<td>
+			<label for="q19">tends to be disorganized:</label>
+			<select name ="q19" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q20">worries a lot:</label>
+			<select name ="q20" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+				<tr>
+				<td>
+			<label for="q21">has an active imagination:</label>
+			<select name ="q21" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q22">tends to be quiet:</label>
+			<select name ="q22" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+					<tr>
+				<td>
+			<label for="q23">is generally trusting:</label>
+			<select name ="q23" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q24">tends to be lazy:</label>
+			<select name ="q24" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+				<tr>
+				<td>
+			<label for="q25">is emotionally stable, not easily upset:</label>
+			<select name ="q25" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q26">is inventive:</label>
+			<select name ="q26" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+				<tr>
+				<td>
+			<label for="q27">has an assertive personality:</label>
+			<select name ="q27" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q28">can be cold and aloof:</label>
+			<select name ="q28" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+			<tr>
+				<td>
+			<label for="q29">perseveres until the task is finished:</label>
+			<select name ="q29" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q30">can be moody:</label>
+			<select name ="q30" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+				<tr>
+				<td>
+			<label for="q31">values artistic, aesthetic experiences:</label>
+			<select name ="q31" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q32">is sometimes shy, inhibited:</label>
+			<select name ="q32" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+			
+							<tr>
+				<td>
+			<label for="q33">does things efficiently:</label>
+			<select name ="q33" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q34">remains calm in tense situations:</label>
+			<select name ="q34" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+					<tr>
+				<td>
+			<label for="q35">prefers work that is routine:</label>
+			<select name ="q35" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q36">is outgoing, sociable:</label>
+			<select name ="q36" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+						<tr>
+				<td>
+			<label for="q37">is sometimes rude to others:</label>
+			<select name ="q37" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q38">makes plans and follows through with them:</label>
+			<select name ="q38" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+				<tr>
+				<td>
+			<label for="q39">gets nervous easily:</label>
+			<select name ="q39" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q40">likes to reflect, play with ideas:</label>
+			<select name ="q40" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+				<tr>
+				<td>
+			<label for="q41">has few artistic interests:</label>
+			<select name ="q41" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q42">likes to cooperate with others:</label>
+			<select name ="q42" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>
+				<tr>
+				<td>
+			<label for="q43">is easily distracted:</label>
+			<select name ="q43" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+		
+				<td>
+			<label for="q44">is sophisticated in art, music, or literature:</label>
+			<select name ="q44" class="fr">
+				<option disabled selected value> -- select -- </option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				
+			</select><br/>
+			</td>
+				</tr>       
+			</tr>
+			</table>
+			</fieldset>
+			</form>
+			<button onclick="BFIsaveValues();" id="submit_p4b" class="submit_b button1">Submit</button>
+			<button id="p4b" class="button_next" style="vertical-align:middle" disabled="" onclick="next_p4()"><span>next</span></button>
+		</div>
+		
+		<div id="page4" style="display: none; margin: 5%;">
+			<div id="surveycoded" style=" margin-bottom: 2%;" >
+				Thank you for your participation. <br>
+				Please Enter the following Survey Code on Mturk's Website :
+				<p id = "d_surveycode" style="font-size: 36px; font-family: sans-serif; color: #3b8beb;"></p>
+				After entering this code on MTurks website you can exit this website.
+			</div>
+		</div>
+<!--Script Begins-->
+
+        <script src="/node_modules/recordrtc/RecordRTC.js"></script>
+        
+        <script>
+            // fetching DOM references
+
+            var btnStartRecording = document.querySelector('#btn-start-recording');
+            var btnStopRecording  = document.querySelector('#btn-stop-recording');
+            var videoElement      = document.querySelector('video');
+            
+            var recorder;
+
+            // reusable helpers
+            
+            // this function submits recorded blob to nodejs server
+			
+			function postFiles() {
+                var blob = recorder.getBlob();
+
+                // getting unique identifier for the file name
+                var fileName = debatename() + '_' + othername() + '_' + scode + '.wav';
+                
+                
+                var file = new File([blob], fileName, {
+                    type: 'audio/wav'
+                });
+
+                videoElement.src = '/images/source.gif';
+                videoElement.poster = '/images/source.gif';
+
+                xhr('/uploadFile', file, function(responseText) {
+					var fileURL = JSON.parse(responseText).fileURL;
+					audURL = './uploads/' + fileName;
+                    videoElement.src = audURL;
+                    videoElement.play();
+                    videoElement.muted = false;
+                    videoElement.controls = true;
+                });
+                if(mediaStream) mediaStream.stop();
+            }
+            
+            // XHR2/FormData
+            function xhr(url, data, callback) {
+                var request = new XMLHttpRequest();
+                request.onreadystatechange = function() {
+                    if (request.readyState == 4 && request.status == 200) {
+                        callback(request.responseText);
+                    }
+                };
+
+                        
+                request.upload.onload = function() {
+                };
+                request.open('POST', url);
+
+                var formData = new FormData();
+                formData.append('file', data);
+                request.send(formData);
+            }
+
+            function LEAPsaveValues() {
+                    var frm = document.leap;
+                    var record = ""
+                        +       othername()
+                        + "," + scode
+                        + "," + frm.age.value
+                        + "," + frm.gender.value
+                        + "," + frm.edu.value
+                        + "," + frm.l_dom_1.value
+						+ "," + frm.l_dom_2.value
+						+ "," + frm.l_dom_3.value
+						+ "," + frm.l_dom_4.value
+						+ "," + frm.l_dom_5.value
+                        + "," + frm.l_acq_1.value
+						+ "," + frm.l_acq_2.value
+						+ "," + frm.l_acq_3.value
+						+ "," + frm.l_acq_4.value
+						+ "," + frm.l_acq_5.value
+						+ "," + frm.l_1.value
+						+ ":" + frm.l_p_1.value
+						+ "," + frm.l_2.value
+						+ ":" + frm.l_p_2.value
+						+ "," + frm.l_3.value
+						+ ":" + frm.l_p_3.value
+						+ "," + frm.l_4.value
+						+ ":" + frm.l_p_4.value
+						+ "," + frm.l_5.value
+						+ ":" + frm.l_p_5.value
+                        + "," + frm.edu_y.value
+                        + "," + frm.e_grade.value
+                        + "," + frm.age_acq.value
+                        + "," + frm.age_flu.value
+                        + "," + frm.age_read.value
+                        + "," + frm.age_read_flu.value
+                        + "," + frm.speak.value
+                        + "," + frm.listen.value
+                        + "," + frm.read.value
+                        + "," + frm.write.value
+                        + "," + frm.learn_friends.value
+                        + "," + frm.learn_family.value
+                        + "," + frm.learn_read.value
+                        + "," + frm.learn_class.value
+                        + "," + frm.learn_work.value
+                        + "," + frm.learn_app.value
+                        + "," + frm.learn_game.value
+                        + "," + frm.learn_tv.value
+                        + "," + frm.learn_music.value
+                        + "," + frm.learn_social.value
+                        + "\n";
+                    var blob = new Blob([record],
+                        { type: "text/plain;charset=utf-8" });
+                    var fileName = 'LEAP_' + othername() + '_' + scode + '.txt';
+                    var file = new File([blob], fileName);
+                    xhr('/uploadFile', file, function(responseText) {
+                        var fileURL = JSON.parse(responseText).fileURL;});
+					document.getElementById("p4").disabled = false;
+					document.getElementById("submit_p4").style.display = 'none';
+				}
+				
+				function LSBQsaveValues() {
+                    var frm2 = document.lsbq;
+                    var record1 = ""
+                        +       othername()
+						+ "," + scode
+						
+						+ "," + frm2.q1.value
+						+ "," + frm2.q2.value
+						+ "," + frm2.q3.value
+						+ "," + frm2.q4.value
+						+ "," + frm2.q5.value
+						+ "," + frm2.q6.value		
+						+ "," + frm2.q11.value
+						+ "," + frm2.q12.value
+						+ "," + frm2.q13.value
+						+ "," + frm2.q14.value
+						+ "," + frm2.q15.value
+						+ "," + frm2.q16.value
+                                                + "," + frm2.a1.value
+						+ "\n";
+						
+						
+                    var blob = new Blob([record1],
+                        { type: "text/plain;charset=utf-8" });
+                    var fileName = 'RH_' + othername() + '_' + scode + '.txt';
+                    var file = new File([blob], fileName);
+                    xhr('/uploadFile', file, function(responseText) {
+                        var fileURL = JSON.parse(responseText).fileURL;});
+					document.getElementById("p4a").disabled = false;
+					document.getElementById("submit_p4a").style.display = 'none';
+                }
+
+			function BFIsaveValues() {
+				var frm3 = document.bfi;
+				var record2 = ""
+					+       othername()
+					+ "," + scode
+					+ "," + frm3.q1.value
+					+ "," + frm3.q2.value
+					+ "," + frm3.q3.value
+					+ "," + frm3.q4.value
+					+ "," + frm3.q5.value
+					+ "," + frm3.q6.value
+					+ "," + frm3.q7.value
+					+ "," + frm3.q8.value
+					+ "," + frm3.q9.value
+					+ "," + frm3.q10.value
+					+ "," + frm3.q11.value
+					+ "," + frm3.q12.value
+					+ "," + frm3.q13.value
+					+ "," + frm3.q14.value
+					+ "," + frm3.q15.value
+					+ "," + frm3.q16.value
+					+ "," + frm3.q17.value
+					+ "," + frm3.q18.value
+					+ "," + frm3.q19.value
+					+ "," + frm3.q20.value
+					+ "," + frm3.q21.value
+					+ "," + frm3.q22.value
+					+ "," + frm3.q23.value
+					+ "," + frm3.q24.value
+					+ "," + frm3.q25.value
+					+ "," + frm3.q26.value
+					+ "," + frm3.q27.value
+					+ "," + frm3.q28.value
+					+ "," + frm3.q29.value
+					+ "," + frm3.q30.value
+					+ "," + frm3.q31.value
+					+ "," + frm3.q32.value
+					+ "," + frm3.q33.value
+					+ "," + frm3.q34.value
+					+ "," + frm3.q35.value
+					+ "," + frm3.q36.value
+					+ "," + frm3.q37.value
+					+ "," + frm3.q38.value
+					+ "," + frm3.q39.value
+					+ "," + frm3.q40.value
+					+ "," + frm3.q41.value
+					+ "," + frm3.q42.value
+					+ "," + frm3.q43.value
+					+ "," + frm3.q44.value
+					+ "\n";
+				var blob = new Blob([record2],
+					{ type: "text/plain;charset=utf-8" });
+				var fileName = 'BFI_' + othername() + '_' + scode + '.txt';
+				var file = new File([blob], fileName);
+				xhr('/uploadFile', file, function(responseText) {
+					var fileURL = JSON.parse(responseText).fileURL;});
+				document.getElementById("p4b").disabled = false;
+				document.getElementById("submit_p4b").style.display = 'none';
+			}
+
+            // generating random string
+            function generateRandomString() {
+                if (window.crypto) {
+                    var a = window.crypto.getRandomValues(new Uint32Array(3)),
+                        token = '';
+                    for (var i = 0, l = a.length; i < l; i++) token += a[i].toString(36);
+                    var codeA = token.slice(0, 5);
+                    return codeA;
+                } else {
+                    var b = (Math.random() * new Date().getTime()).toString(36).replace( /\./g , '');
+                    var codeB = b.slice(0, 5);
+                    return codeB;
+                }
+            }
+
+            function othername() {
+                var input_name = document.getElementById("userInput").value;
+                return input_name;
+            }
+
+            function debatename() {
+                var deb = document.debate;
+				var deb_name = deb.topic.value;
+                return deb_name;
+            };
+
+            var scode = generateRandomString();
+            document.getElementById("d_surveycode").innerHTML = scode;
+
+            function next_p1() {
+                var a = document.getElementById("page0");
+                a.style.display = 'none';
+                var b = document.getElementById("page1");
+                b.style.display = "block";
+                var c = document.getElementById("myHeader");
+                c.style.display = "block";
+            }
+
+            function next_p2() {
+                var a = document.getElementById("page1");
+                a.style.display = 'none';
+                var b = document.getElementById("page2");
+                b.style.display = "block"
+				
+            }
+
+
+           function next_p2a() {
+                var a = document.getElementById("page2");
+                a.style.display = 'none';
+                var b = document.getElementById("page2a");
+                b.style.display = "block";
+				if(debatename() == 'topic1'){
+					texttoshow = "'Climate change is the greatest threat facing humanity today.'";
+				} else if(debatename() == 'topic2'){
+					texttoshow = "'People should be legally required to get vaccines.'";
+				} else if(debatename() == 'topic3'){
+					texttoshow = "'The development of artificial intelligence will help humanity.'";
+				}
+				document.getElementById('top_name').innerHTML = texttoshow;
+            }
+
+            function next_p3() {
+                var a = document.getElementById("page2a");
+                a.style.display = 'none';
+                var b = document.getElementById("page3");
+                b.style.display = "block";
+                videoElement.pause();
+            }
+
+            function next_p3a() {
+                var a = document.getElementById("page3");
+                a.style.display = 'none';
+                var b = document.getElementById("page3a");
+                b.style.display = "block";
+                videoElement.pause();
+            }
+
+            function next_p3b() {
+                var a = document.getElementById("page3a");
+                a.style.display = 'none';
+                var b = document.getElementById("page3b");
+                b.style.display = "block";
+                videoElement.pause();
+            }
+
+            function next_p4() {
+                var a = document.getElementById("page3b");
+                a.style.display = 'none';
+                var b = document.getElementById("page4");
+                b.style.display = "block"
+            }
+
+            function recordAgain() {
+                btnStopRecording.disabled = true;
+                btnStartRecording.disabled = false;
+                document.getElementById("p3").disabled = true;
+                document.getElementById("again").disabled = true;
+				btnStartRecording.style.display = "";
+				document.getElementById("again").style.display = "none";
+            }
+
+            window.onscroll = function() {myFunction()};
+
+// Get the header
+var header = document.getElementById("myHeader");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+			function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+            var mediaStream = null;
+            // reusable getUserMedia
+            function captureUserMedia(success_callback) {
+                var session = {
+                    audio: true,
+                    video: false
+                };
+				
+				//navigator.mediaDevices.getUserMedia(session, success_callback,function(error) {
+                  //  alert('Unable to access your microphone. Please check console logs.');
+                    //console.error(error);
+                //});
+                navigator.getUserMedia(session, success_callback, function(error) {
+                    alert('Unable to access your microphone. Please check console logs.');
+                    console.error(error);
+                });
+            }
+
+            // UI events handling
+            btnStartRecording.onclick = function() {
+                btnStartRecording.disabled = true;
+                
+                captureUserMedia(function(stream) {
+                    mediaStream = stream;
+                    
+                    videoElement.src = stream;
+                    videoElement.play();
+                    videoElement.muted = true;
+                    videoElement.controls = false;
+                    
+                    recorder = RecordRTC(stream, {
+                        type: 'audio'
+                    });
+                    
+                    recorder.startRecording();
+                    
+                    // enable stop-recording button
+
+				});
+				btnStartRecording.style.display = "none";
+				btnStopRecording.style.display = "";
+            	btnStopRecording.disabled = false;
+				document.getElementById("recorded").style.visibility = "visible";
+            };
+
+
+            btnStopRecording.onclick = function() {
+                btnStartRecording.disabled = true;
+                btnStopRecording.disabled = true;
+				btnStopRecording.style.display = "none";
+                recorder.stopRecording(postFiles);
+                document.getElementById("p3").disabled = false;
+                document.getElementById("again").disabled = false;
+				document.getElementById("again").style.display = "";
+				document.getElementById("recorded").style.visibility = "hidden";
+				alert("Your recording will now be played, if you are satisfied with the recording press 'next', otherwise 'redo'.");
+            };
+
+            window.onbeforeunload = function() {
+                startRecording.disabled = false;
+            };
+        </script>        
+    </body>
+</html>

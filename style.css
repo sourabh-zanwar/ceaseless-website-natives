@@ -1,0 +1,276 @@
+html { 
+    background-color: #f6f5f5;
+    font-family: 'Raleway';
+    color: #474747;
+    /**background-size:     100% auto;
+    background-repeat:   no-repeat;
+    background-position: center center;**/
+
+}
+
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    margin: 0% 0% 0% 0%;
+    text-align: center;
+}
+
+
+hr {
+    border: 0;
+    border-top: 1px solid white;
+    margin: 2% 2% 2% 2%;
+}
+
+div {
+    margin-left: 20px;
+    margin-top: 2%;
+    margin-right: 20px;
+    margin-bottom: 2;
+}
+
+
+.buttonrec {
+    color: white;
+    height:50px;
+    width:125px;
+    font-size: large;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.500);
+    border: 2px solid white;
+    margin: 2% 0% 2% 0%;
+}
+
+.button_next {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #3b8beb;;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 5px;
+  width: 120px;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin: 5px;
+  float: right;
+}
+
+.button_next[disabled] {
+  background-color: rgb(143, 143, 143);
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+.button_next[disabled] span{
+  cursor: not-allowed;
+}
+
+.button_next span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+
+.button_next span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.4s;
+}
+
+.button_next:hover span {
+  padding-right: 25px;
+}
+
+.button_next:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.submit_b {
+  background-color: #3b8beb;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  font-size: 28px;
+  padding: 5px;
+  width: 120px;
+  margin: 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  float: left;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #3b8beb;
+  float: left;
+}
+
+.button1:hover {
+  background-color: #3b8beb;
+  color: white;
+}
+
+.button_start {
+  background: url(/images/rec.png);
+  background-color: transparent;
+  background-size: contain;
+  height: 90px;
+  width: 90px;
+  border: 2px outset;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+.button_start:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button_start[disabled] {
+  background: url(/images/rec-d.png);
+  background-color: transparent;
+  height: 90px;
+  width: 90px;
+  background-size: contain;
+  border: 2px outset;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.button_stop {
+  background: url(/images/stop.png);
+  background-color: transparent;
+  height: 120px;
+  width: 90px;
+  background-size: contain;
+  border: 2px outset;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.button_stop:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button_stop[disabled] {
+  background: url(/images/stop-d.png);
+  background-color: transparent;
+  height: 120px;
+  width: 90px;
+  background-size: contain;
+  border: 2px outset;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.button_re {
+  background: url(/images/redo.png);
+  background-color: transparent;
+  height: 120px;
+  width: 90px;
+  background-size: contain;
+  border: 2px outset;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.button_re:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button_re[disabled] {
+  background: url(/images/redo-d.png);
+  background-color: transparent;
+  height: 120px;
+  width: 90px;
+  background-size: contain;
+  border: 2px outset;
+  cursor: pointer;
+  margin: 3% 3% 3% 3%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+  table-layout : fixed;
+  vertical-align: baseline;
+}
+
+
+.fr {
+    float: right;
+}
+
+.fl {
+  float: left;
+  text-align: left;
+}
+
+h4 {
+  text-align: left;
+}
+
+
+/* Style the header */
+.header {
+    padding: 2px 2px;
+    background: #3b8beb;
+    color: #f1f1f1;
+    padding-top: 8px;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    
+  }
+  
+  /* Page content */
+  .content {
+    padding: 16px;
+  }
+  
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+video {
+    border: 1px solid rgb(15, 158, 238); width: 30%;
+}
+button[disabled], input[disabled] { color: rgb(143, 143, 143); cursor:not-allowed;}
+div[disabled] {display: none;}
