@@ -305,13 +305,18 @@ div[disabled] {display: none;}
         top: 50%;
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);">
-            <strong style="font-size: 120px; color: #3b8beb; margin-bottom: 5px;" >ceaseless</strong>
-			<br>
-            <form id="form" onsubmit="return false;" style="font-size:x-large;">
-                <input type="text" id="userInput" placeholder="Please Enter your MTurk WorkerID" style="color: rgb(82, 82, 82); font-size: 16px;
-                padding: 10px; width: 50%; border: ridge;vertical-align:middle;"/>
-                <button class="button_next" style="vertical-align:middle; float: none;" onclick="next_p1()"><span>next</span></button>
-            </form>
+            <strong style="font-size: 120px; color: #3b8beb; margin-bottom: 0px;" >ceaseless</strong>
+			<form id="form" onsubmit="return false;" style="font-size:x-large;" >
+				<div id='disclamier'>
+					<p style="padding:3px; border: 2px solid #474747; border-radius: 8px; font-size: medium; text-align: justify; margin-left: 6%; margin-right: 6%;">We will use the collected data for research purposes only. We will not be collecting any personal data such as name, address, any contact information or any data that can be associated with a specific person. The data that we collect is encrypted and stored on a secure server anonymously and can only be identified with system-generated unique random code. Please continue if you consent with our data collection policy.</p>
+					<button class="button_next" style="vertical-align:middle; float: none;" onclick="disclamier_fn();"><span>next</span></button>
+				</div>
+				<div id='workid' style="display: none;">
+					<input type="text" id="userInput" placeholder="Please Enter your MTurk WorkerID" style="color: rgb(82, 82, 82); font-size: 16px;
+						padding: 10px; width: 70%; border: ridge;vertical-align:middle;" /><br>
+                	<button class="button_next" style="vertical-align:middle; float: none; margin-top: 10px;" onclick="next_p1()"><span>next</span></button>
+				</div>
+			</form>
         </div>
 
         <div class="header" id="myHeader" style="font-size: 40px; margin:0px 0px 10px 0px; text-align: left; font-family: 'Montserrat'; display: none;">
@@ -322,25 +327,25 @@ div[disabled] {display: none;}
 			
 			<br>
 			<div style="font-size: x-large; margin: 2% 10% 2% 10%; text-align: left;">
-				<strong><u>Please choose the following topic to speak about:</u></strong><br><br>
+				<strong><u>Please choose one of the following topics to speak about:</u></strong><br><br>
 				<form name='debate'>
 				<table style="border: none;">
-					<tr style="border: none; display: none;">
+					<tr style="border: none;">
 						<td style="border: none;">
-							<input type="radio" name="topic" value="topic1">
+							<input type="radio" id="t1" name="topic" value="topic1">
 							<strong style="color: black">Topic 1: Climate change is the greatest threat facing humanity today. </strong><br>
 						</td>
 					</tr>
-					<tr style="border: none; ">
+					<tr style="border: none;">
 						<td style="border: none;">
-							<input type="radio" name="topic" value="topic2">
-							<strong style="color:black">Topic : People should be legally required to get vaccines. </strong><br>
+							<input type="radio" id="t1" name="topic" value="topic2">
+							<strong style="color:black">Topic 2: People should be legally required to get vaccines. </strong><br>
 						</td>
 					</tr>
-					<tr style="border: none; display: none;" >
+					<tr style="border: none;">
 						<td style="border: none;">
-							<input type="radio" name="topic" value="topic3">
-							<strong style="color: black">Topic : The development of artificial intelligence will help humanity. </strong><br>
+							<input type="radio" id="t1" name="topic" value="topic3">
+							<strong style="color: black">Topic 3: The development of artificial intelligence will help humanity. </strong><br>
 						</td>
 					</tr>
 				</table>
@@ -375,9 +380,8 @@ div[disabled] {display: none;}
 			<button id="p3" class="button_next" disabled="" style="vertical-align:middle" onclick="next_p3()"><span>next</span></button>
 			<p><video style="visibility: hidden;"></video></p>
 			<br>
+                        
 		</div>
-
-
 		
 		<div id="page3" style="display: none; margin: 5%;">
 		<form name="leap" action="javascript:null">
@@ -420,7 +424,7 @@ div[disabled] {display: none;}
 
 		<tr>
 		<td>	
-		<label for="edu" class="fl">Educational level (field and degree)</label>
+		<label for="edu" class="fl">Educational level(field and degree)</label>
 		<input name="edu" type="text" placeholder="eg. MSc Computer Science" class="fr" style="width:fit-content;"/> <br /> 
 		</td>
 		</tr>
@@ -429,109 +433,111 @@ div[disabled] {display: none;}
 		<table>
 		<tr>
 		<td>
-		<label for="l_dom" class="fl">1. Please list all the languages you know in order of dominance (up to 5):</label><br /> 
-		<table>
-			<tr>
-			<td>
-				<input name="l_dom_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
+			<label for="l_dom" class="fl">1. Please list all the languages you know in order of dominance (up to 5):</label><br /> 
+			<table>
+				<tr>
+				<td>
+					<input name="l_dom_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+				</tr>
+				<tr>
+				<td>
+					<input name="l_dom_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
 			</tr>
 			<tr>
-			<td>
-				<input name="l_dom_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<input name="l_dom_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-		</tr>
-		<tr><td>
-				<input name="l_dom_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-		</tr>
-		<tr><td>
-				<input name="l_dom_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				<td>
+					<input name="l_dom_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+			</tr>
+			<tr><td>
+					<input name="l_dom_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+			</tr>
+			<tr><td>
+					<input name="l_dom_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+				</tr>
+			</table>
 			</td>
 			</tr>
-		</table>
-		</td>
-		</tr>
-		
-		<tr>
-		<td>	
-		<label for="l_acq" class="fl">2. Please list all the languages you know in order of acquisition (your native language first):</label><br /> 
-		<table>
+			
 			<tr>
-			<td>
-				<input name="l_acq_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
+			<td>	
+			<label for="l_acq" class="fl">2. Please list all the languages you know in order of acquisition (your native language first):</label><br /> 
+			<table>
+				<tr>
+				<td>
+					<input name="l_acq_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr" />
+				</td>
+				</tr>
+				<tr>
+				<td>
+					<input name="l_acq_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
 			</tr>
 			<tr>
-			<td>
-				<input name="l_acq_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<input name="l_acq_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-		</tr>
-		<tr><td>
-				<input name="l_acq_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-		</tr>
-		<tr><td>
-				<input name="l_acq_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
+				<td>
+					<input name="l_acq_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
 			</tr>
-		</table>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label for="l_per" class="fl">3. Please list what percentage of time you are currently and on average exposed to each language. (Please list the languages as in the two questions above. Your percentages should add up to 100%):</label><br /> 
-		<table>
-			<tr>
-			<td>
-				<input name="l_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-			<td>
-				<input name="l_1_p" type="number" placeholder="exposure in %" value=" ">
-			</td>
+			<tr><td>
+					<input name="l_acq_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
 			</tr>
+			<tr><td>
+					<input name="l_acq_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+				</tr>
+			</table>
+			</td>
 			</tr>
 			<tr>
 			<td>
-				<input name="l_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-			<td>
-				<input name="l_2_p" type="number" placeholder="exposure in %" value=" ">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<input name="l_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-			<td>
-				<input name="l_3_p" type="number" placeholder="exposure in %" value=" ">
-			</td>
-		</tr>
-		<tr><td>
-				<input name="l_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-			<td>
-				<input name="l_4_p" type="number" placeholder="exposure in %" value=" ">
-			</td>
-		</tr>
-		<tr><td>
-				<input name="l_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
-			</td>
-			<td>
-				<input name="l_5_p" type="number" placeholder="exposure in %" value=" ">
-			</td>
+			<label for="l_per" class="fl">3. Please list what percentage of time you are currently and on average exposed to each language. (Please list the languages as in the two questions above. Your percentages should add up to 100%):</label><br /> 
+			<table>
+				<tr>
+				<td>
+					<input name="l_1" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+				<td>
+					<input name="l_1_p" type="number" placeholder="exposure in %" value=" ">
+				</td>
+				</tr>
+				</tr>
+				<tr>
+				<td>
+					<input name="l_2" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+				<td>
+					<input name="l_2_p" type="number" placeholder="exposure in %" value=" ">
+				</td>
 			</tr>
-		</table>
+			<tr>
+				<td>
+					<input name="l_3" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+				<td>
+					<input name="l_3_p" type="number" placeholder="exposure in %" value=" ">
+				</td>
+			</tr>
+			<tr><td>
+					<input name="l_4" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+				<td>
+					<input name="l_4_p" type="number" placeholder="exposure in %" value=" ">
+				</td>
+			</tr>
+			<tr><td>
+					<input name="l_5" type="text" placeholder="eg. German; English; French;" value=" " class="fr"/>
+				</td>
+				<td>
+					<input name="l_5_p" type="number" placeholder="exposure in %" value=" ">
+				</td>
+				</tr>
+			</table>
+			</td>
+			</tr>	
 		</td>
 		</tr>
 		
@@ -604,10 +610,36 @@ div[disabled] {display: none;}
 		</tr>
 		</table>
 		</td>
+		<td style="border:none;">
+		<h4>2. Please list the number of years and months you spent in each <strong> language environment</strong>(in months):</h4>
 		
+		<table>
+		<tr>
+		<td>
+		<label for="con_eng" class="fl">A country where English is spoken</label>
+		<input name="con_eng" type="number" placeholder="eg. 16" class="fr"/> <br /> 
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<label for="fam_eng" class="fl">A family where English is spoken</label>
+		<input name="fam_eng" type="number" placeholder="eg. 16" class="fr"/> <br /> 
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<label for="oth_eng" class="fl">A school and/or working environment where English is spoken
+	</label>
+		<input name="oth_eng" type="number" placeholder="eg. 16" class="fr"/> <br /> 
+		</td>
+		</tr>
+		</table>
+		</td>
 		
 		<td style="border:none;">
-		<h4>2. On a scale from zero to ten, please select your level of proficiency in speaking, listening, reading and writing your native language:</h4>
+		<h4>3. On a scale from zero to ten, please select your level of proficiency in speaking, listening, reading and writing English:</h4>
 		
 		<table>
 		<tr>
@@ -873,6 +905,190 @@ div[disabled] {display: none;}
 		</td>
 		</tr>
 		</table>
+		
+
+		<h4>5. On a scale from zero to ten, please rate to what extent you are currently exposed to English in the following contexts:</h4>
+		<table style="width:100%; border:none;">
+		<tr>
+		<td>
+		<label for="exp_friends" class="fl">Interacting with friends:</label>
+		<select name ="exp_friends" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		
+		<td>
+		<label for="exp_family" class="fl">Interacting with family:</label>
+		<select name ="exp_family" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<label for="exp_read" class="fl">Reading:</label>
+		<select name ="exp_read" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		
+		<td>
+		<label for="exp_class" class="fl">Classroom instruction:</label>
+		<select name ="exp_class" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+		<tr>
+
+		<td>
+		<label for="exp_work" class="fl">Workplace:</label>
+		<select name ="exp_work" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+
+		<td>
+		<label for="exp_app" class="fl">Self-instruction/ language learning systems (Babbel, Duolingo, Memrise, etc.):</label>
+		<select name ="exp_app" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+
+		<tr>
+		<td>
+		<label for="exp_game" class="fl">Video Gaming:</label>
+		<select name ="exp_game" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+
+		<td>
+		<label for="exp_tv" class="fl">Watching TV or streaming (Netflix, Amazon Prime, etc.):</label>
+		<select name ="exp_tv" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+
+		<tr>
+		<td>
+		<label for="exp_music" class="fl">Listening to music/radio:</label>
+		<select name ="exp_music" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+
+		<td>
+		<label for="exp_social" class="fl">Social media (Facebook, Instagram, YouTube, Twitter, etc.):</label>
+		<select name ="exp_social" class="fr">
+			<option disabled selected value> -- select -- </option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br/>
+		</td>
+		</tr>
+		</table>
 		<br>
 		</fieldset>	
 			</form>
@@ -1057,7 +1273,7 @@ div[disabled] {display: none;}
 		<legend>PERSONALITY-QUESTIONNAIRE</legend>
 		<h4> INSTRUCTIONS </h4>
 		<p>Here are a number of characteristics that may or may not apply to you. For example, do you
-		agree that you are someone who likes to spend time with others? Please SELECT a number next to each
+		agree that you are someone who likes to spend time with others? Please write a number next to each
 		statement to indicate the extent to which you agree or disagree with that statement.</p>
 		<center>
 		<table style="width:70%">
@@ -1767,6 +1983,39 @@ div[disabled] {display: none;}
 
             function LEAPsaveValues() {
                     var frm = document.leap;
+                    if(frm.age.value ==0
+                        || frm.gender.value.length==0
+                       || frm.edu.value.length==0
+                       
+			
+                        || frm.speak.value==0
+                       || frm.listen.value==0
+                       || frm.read.value==0
+                        || frm.write.value==0
+                       || frm.learn_friends.value==0
+                       || frm.learn_family.value==0
+                        || frm.learn_read.value==0
+                        || frm.learn_class.value==0
+                        || frm.learn_work.value==0
+                      || frm.learn_app.value==0
+                       || frm.learn_game.value==0
+                       || frm.learn_tv.value==0
+                        || frm.learn_music.value==0
+                        || frm.learn_social.value==0
+                        || frm.exp_friends.value==0
+                        || frm.exp_family.value==0
+                      || frm.exp_read.value==0
+                       || frm.exp_class.value==0
+                        || frm.exp_work.value==0
+                        || frm.exp_app.value==0
+                        || frm.exp_game.value==0
+                       || frm.exp_tv.value==0
+                        || frm.exp_music.value==0
+                        || frm.exp_social.value==0)
+                    {
+                       alert("Please fill all the fields with appropriate values.");
+                    }
+                 else{    
                     var record = ""
                         +       othername()
                         + "," + scode
@@ -1799,6 +2048,9 @@ div[disabled] {display: none;}
                         + "," + frm.age_flu.value
                         + "," + frm.age_read.value
                         + "," + frm.age_read_flu.value
+                        + "," + frm.con_eng.value
+                        + "," + frm.fam_eng.value
+                        + "," + frm.oth_eng.value
                         + "," + frm.speak.value
                         + "," + frm.listen.value
                         + "," + frm.read.value
@@ -1813,6 +2065,16 @@ div[disabled] {display: none;}
                         + "," + frm.learn_tv.value
                         + "," + frm.learn_music.value
                         + "," + frm.learn_social.value
+                        + "," + frm.exp_friends.value
+                        + "," + frm.exp_family.value
+                        + "," + frm.exp_read.value
+                        + "," + frm.exp_class.value
+                        + "," + frm.exp_work.value
+                        + "," + frm.exp_app.value
+                        + "," + frm.exp_game.value
+                        + "," + frm.exp_tv.value
+                        + "," + frm.exp_music.value
+                        + "," + frm.exp_social.value
                         + "\n";
                     var blob = new Blob([record],
                         { type: "text/plain;charset=utf-8" });
@@ -1823,9 +2085,26 @@ div[disabled] {display: none;}
 					document.getElementById("p4").disabled = false;
 					document.getElementById("submit_p4").style.display = 'none';
 				}
-				
-				function LSBQsaveValues() {
+				}
+			function LSBQsaveValues() {
                     var frm2 = document.lsbq;
+                    if (frm2.q1.value==0 
+                        || frm2.q2.value==0
+			|| frm2.q3.value==0
+			|| frm2.q4.value==0
+			|| frm2.q5.value==0
+			|| frm2.q6.value==0		
+			|| frm2.q11.value==0
+			|| frm2.q12.value==0
+			|| frm2.q13.value==0
+			|| frm2.q14.value==0
+			|| frm2.q15.value==0
+			|| frm2.q16.value==0
+                        || frm2.a1.value==0)
+                         {
+                       alert("Please fill all the fields with appropriate values.");
+                    }
+                   else{
                     var record1 = ""
                         +       othername()
 						+ "," + scode
@@ -1855,9 +2134,57 @@ div[disabled] {display: none;}
 					document.getElementById("p4a").disabled = false;
 					document.getElementById("submit_p4a").style.display = 'none';
                 }
-
+                }
 			function BFIsaveValues() {
 				var frm3 = document.bfi;
+                                if(frm3.q1.value==0
+				        || frm3.q2.value==0
+					|| frm3.q3.value==0
+					|| frm3.q4.value==0
+					|| frm3.q5.value==0
+					|| frm3.q6.value==0
+					|| frm3.q7.value==0
+					|| frm3.q8.value==0
+					|| frm3.q9.value==0
+					|| frm3.q10.value==0
+					|| frm3.q11.value==0
+					|| frm3.q12.value==0
+					|| frm3.q13.value==0
+					|| frm3.q14.value==0
+					|| frm3.q15.value==0
+					|| frm3.q16.value==0
+					|| frm3.q17.value==0
+					|| frm3.q18.value==0
+					|| frm3.q19.value==0
+					|| frm3.q20.value==0
+					|| frm3.q21.value==0
+					|| frm3.q22.value==0
+					|| frm3.q23.value==0
+					|| frm3.q24.value==0
+					|| frm3.q25.value==0
+					|| frm3.q26.value==0
+					|| frm3.q27.value==0
+					|| frm3.q28.value==0
+					|| frm3.q29.value==0
+					|| frm3.q30.value==0
+					|| frm3.q31.value==0
+					|| frm3.q32.value==0
+					|| frm3.q33.value==0
+					|| frm3.q34.value==0
+					|| frm3.q35.value==0
+					|| frm3.q36.value==0
+					|| frm3.q37.value==0
+					|| frm3.q38.value==0
+					|| frm3.q39.value==0
+					|| frm3.q40.value==0
+					|| frm3.q41.value==0
+					|| frm3.q42.value==0
+					|| frm3.q43.value==0
+					|| frm3.q44.value==0)
+                                        {
+                       alert("Please fill all the fields with appropriate values.");
+                    }
+                               else{
 				var record2 = ""
 					+       othername()
 					+ "," + scode
@@ -1915,6 +2242,7 @@ div[disabled] {display: none;}
 				document.getElementById("p4b").disabled = false;
 				document.getElementById("submit_p4b").style.display = 'none';
 			}
+                      }
 
             // generating random string
             function generateRandomString() {
@@ -1945,20 +2273,40 @@ div[disabled] {display: none;}
             var scode = generateRandomString();
             document.getElementById("d_surveycode").innerHTML = scode;
 
+			function disclamier_fn() {
+				var a = document.getElementById("disclamier");
+				a.style.display = 'none';
+				var b = document.getElementById("workid");
+				b.style.display = "block";
+			}
+
             function next_p1() {
+                if(document.getElementById("userInput").value.length!=0)
+                {
                 var a = document.getElementById("page0");
                 a.style.display = 'none';
                 var b = document.getElementById("page1");
                 b.style.display = "block";
                 var c = document.getElementById("myHeader");
                 c.style.display = "block";
+                }
+               else
+                alert("Please enter your Mturk Worker ID");
             }
 
             function next_p2() {
+               if(document.debate.topic.value!="")
+                {
+                
                 var a = document.getElementById("page1");
                 a.style.display = 'none';
                 var b = document.getElementById("page2");
                 b.style.display = "block"
+                }
+               else{
+ 
+              
+                alert("please choose any one of the values");}
 				
             }
 
@@ -1987,6 +2335,8 @@ div[disabled] {display: none;}
             }
 
             function next_p3a() {
+               
+                
                 var a = document.getElementById("page3");
                 a.style.display = 'none';
                 var b = document.getElementById("page3a");
@@ -2077,7 +2427,7 @@ var sticky = header.offsetTop;
 				btnStartRecording.style.display = "none";
 				btnStopRecording.style.display = "";
             	btnStopRecording.disabled = false;
-				document.getElementById("recorded").style.visibility = "visible";
+                document.getElementById("recorded").style.visibility = "visible";
             };
 
 
