@@ -296,6 +296,13 @@ div[disabled] {display: none;}
   text-align: center;
 }
 
+.stopwatch2 {
+  font-size: x-large;
+  height: auto;
+  line-height: auto;
+  text-align: center;
+}
+
 
 		</style>
         <meta charset="utf-8" />
@@ -424,8 +431,8 @@ div[disabled] {display: none;}
 				<button id="btn-start-recording2" class="button_start"></button>
 				<button id="btn-stop-recording2" disabled="" style="display: none;" class="button_stop"><strong></strong></button>
 				<button id="again2" class="button_re" onclick="recordAgain2()" style="display: none;" disabled=""><strong></strong></button>
-				<div class="stopwatch"></div>
-				<p id='recorded' style="font-size: 32px; color: red; visibility: hidden;">You're now being recorded</p>
+				<div class="stopwatch2"></div>
+				<p id='recorded2' style="font-size: 32px; color: red; visibility: hidden;">You're now being recorded</p>
 			</div>
 
 			<button id="p32" class="button_next" disabled="" style="vertical-align:middle" onclick="next_p3()"><span>next</span></button>
@@ -1311,7 +1318,7 @@ div[disabled] {display: none;}
 					<th>1-4 Hours</th>
 					<th>4-7 hours </label></th>
 					<th>7-10 hours</th>
-                                        <th>More than 10 hours</th>
+                    <th>More than 10 hours</th>
 				</tr>
 				<thead>
 		<tr>
@@ -1321,7 +1328,7 @@ div[disabled] {display: none;}
 			<td><input type="radio" name="q11" value="3"></td>
 			<td><input type="radio" name="q11" value="4"> </td>
 			<td><input type="radio" name="q11" value="5"> </td>
-                        <td><input type="radio" name="q11" value="6"> </td>
+            <td><input type="radio" name="q11" value="6"> </td>
 		</tr>
 		<tr>
 			<td>Magazines</td>
@@ -2592,7 +2599,7 @@ var sticky = header.offsetTop;
 				document.getElementById("again").style.display = "";
 				document.getElementById("recorded").style.visibility = "hidden";
 				stopwatch.stop();
-				alert("Your recording will now be played, if you are satisfied with the recording press 'next', otherwise 'redo'.");
+				alert("Your recording will now be played, if you are satisfied with the recording press 'next', otherwise 'redo'./n");
             };
 
             window.onbeforeunload = function() {
@@ -2623,8 +2630,8 @@ var sticky = header.offsetTop;
 				btnStartRecording2.style.display = "none";
 				btnStopRecording2.style.display = "";
             	btnStopRecording2.disabled = false;
-                document.getElementById("recorded").style.visibility = "visible";
-				stopwatch.restart();
+                document.getElementById("recorded2").style.visibility = "visible";
+				stopwatch2.restart();
             };
 
 
@@ -2636,8 +2643,8 @@ var sticky = header.offsetTop;
                 document.getElementById("p32").disabled = false;
                 document.getElementById("again2").disabled = false;
 				document.getElementById("again2").style.display = "";
-				document.getElementById("recorded").style.visibility = "hidden";
-				stopwatch.stop();
+				document.getElementById("recorded2").style.visibility = "hidden";
+				stopwatch2.stop();
 				alert("Your recording will now be played, if you are satisfied with the recording press 'next', otherwise 'redo'.");
             };
 
@@ -2728,6 +2735,10 @@ function pad0(value, count) {
 
 let stopwatch = new Stopwatch(
     document.querySelector('.stopwatch'),
+    document.querySelector('.results'));
+
+let stopwatch2 = new Stopwatch(
+    document.querySelector('.stopwatch2'),
     document.querySelector('.results'));
         </script>        
     </body>
