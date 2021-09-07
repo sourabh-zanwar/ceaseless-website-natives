@@ -288,6 +288,15 @@ video {
 }
 button[disabled], input[disabled] { color: rgb(143, 143, 143); cursor:not-allowed;}
 div[disabled] {display: none;}
+
+.stopwatch {
+  font-size: x-large;
+  height: auto;
+  line-height: auto;
+  text-align: center;
+}
+
+
 		</style>
         <meta charset="utf-8" />
         <title>CEASELESS</title>
@@ -372,11 +381,12 @@ div[disabled] {display: none;}
 				<button id="btn-start-recording" class="button_start"></button>
 				<button id="btn-stop-recording" disabled="" style="display: none;" class="button_stop"><strong></strong></button>
 				<button id="again" class="button_re" onclick="recordAgain()" style="display: none;" disabled=""><strong></strong></button>
+				<div class="stopwatch"></div>
 				<p id='recorded' style="font-size: 32px; color: red; visibility: hidden;">You're now being recorded</p>
 			</div>
 
 			<button id="p3" class="button_next" disabled="" style="vertical-align:middle" onclick="next_p3()"><span>next</span></button>
-			<p><video style="visibility: hidden;"></video></p>
+			<p><video style="visibility: hidden; display: none;"></video></p>
 			<br>
         </div>
 
@@ -497,6 +507,14 @@ div[disabled] {display: none;}
 		<input name="edu" type="text" placeholder="eg. MSc Computer Science" class="fr" style="width:fit-content;"/> <br /> 
 		</td>
 		</tr>
+
+		<tr>
+			<td>	
+			<label for="nation" class="fl">Nation/Country</label>
+			<input name="nation" type="text" placeholder="eg. USA" class="fr" style="width:fit-content;"/> <br /> 
+			</td>
+		</tr>
+
 		</table>
 		<br/>
 		<table>
@@ -2055,7 +2073,7 @@ div[disabled] {display: none;}
                     if(frm.age.value ==0
                         || frm.gender.value.length==0
                        || frm.edu.value.length==0
-                       
+                       || frm.nation.value.length==0
 			
                         || frm.speak.value==0
                        || frm.listen.value==0
@@ -2091,6 +2109,7 @@ div[disabled] {display: none;}
                         + ";;" + frm.age.value
                         + ";;" + frm.gender.value
                         + ";;" + frm.edu.value
+						+ ";;" + frm.nation.value
                         + ";;" + frm.l_dom_1.value
 						+ ";;" + frm.l_dom_2.value
 						+ ";;" + frm.l_dom_3.value
@@ -2488,6 +2507,7 @@ var sticky = header.offsetTop;
 				btnStopRecording.style.display = "";
             	btnStopRecording.disabled = false;
                 document.getElementById("recorded").style.visibility = "visible";
+				stopwatch.restart();
             };
 
 
@@ -2500,12 +2520,98 @@ var sticky = header.offsetTop;
                 document.getElementById("again").disabled = false;
 				document.getElementById("again").style.display = "";
 				document.getElementById("recorded").style.visibility = "hidden";
+				stopwatch.stop();
 				alert("Your recording will now be played, if you are satisfied with the recording press 'next', otherwise 'redo'.");
             };
 
             window.onbeforeunload = function() {
                 startRecording.disabled = false;
             };
+
+
+
+			class Stopwatch {
+    constructor(display, results) {
+        this.running = false;
+        this.display = display;
+        this.reset();
+        this.print(this.times);
+    }
+    
+    reset() {
+        this.times = [ 0, 0, 0 ];
+    }
+    
+    start() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+    }
+    
+    stop() {
+        this.running = false;
+        this.time = null;
+    }
+
+    restart() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+        this.reset();
+    }
+    
+    
+    step(timestamp) {
+        if (!this.running) return;
+        this.calculate(timestamp);
+        this.time = timestamp;
+        this.print();
+        requestAnimationFrame(this.step.bind(this));
+    }
+    
+    calculate(timestamp) {
+        var diff = timestamp - this.time;
+        // Hundredths of a second are 100 ms
+        this.times[2] += diff / 10;
+        // Seconds are 100 hundredths of a second
+        if (this.times[2] >= 100) {
+            this.times[1] += 1;
+            this.times[2] -= 100;
+        }
+        // Minutes are 60 seconds
+        if (this.times[1] >= 60) {
+            this.times[0] += 1;
+            this.times[1] -= 60;
+        }
+    }
+    
+    print() {
+        this.display.innerText = this.format(this.times);
+    }
+    
+    format(times) {
+        return `\
+${pad0(times[0], 2)}:\
+${pad0(times[1], 2)}:\
+${pad0(Math.floor(times[2]), 2)}`;
+    }
+}
+
+function pad0(value, count) {
+    var result = value.toString();
+    for (; result.length < count; --count)
+        result = '0' + result;
+    return result;
+}
+
+
+let stopwatch = new Stopwatch(
+    document.querySelector('.stopwatch'),
+    document.querySelector('.results'));
         </script>        
     </body>
 </html>
