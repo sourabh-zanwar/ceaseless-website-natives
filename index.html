@@ -334,32 +334,67 @@ div[disabled] {display: none;}
         </div>
 
 		<div id="page1" style="display: none;">
-			
+			<p style="font-size: x-large; text-align: left;">You have to record spontaneous speech on two of the following topics, make sure that each of the recordings is of atleast 3 minutes. After that you fill out 3 questionnaires about basic demographic information, reading habits and personality questionnaires</p>
 			<br>
 			<div style="font-size: x-large; margin: 2% 10% 2% 10%; text-align: left;">
-				<strong><u>Please choose one of the following topics to speak about:</u></strong><br><br>
+				<strong><u>Choose the topics to speak about:</u></strong><br><br>
 				<form name='debate'>
-				<table style="border: none;">
-					<tr style="border: none;">
-						<td style="border: none;">
-							<input type="radio" id="t1" name="topic" value="topic1">
-							<strong style="color: black">Topic 1: Climate change is the greatest threat facing humanity today. </strong><br>
+				<table>
+					<tr>
+						<td>
+							<table style="border: none;">
+								<tr style="border: none;">
+									<td style="border: none;">
+										<input type="radio" id="t1" name="topic1" value="topic1">
+										<strong style="color: black">Topic 1: Climate change is the greatest threat facing humanity today. </strong><br>
+									</td>
+								</tr>
+								<tr style="border: none;">
+									<td style="border: none;">
+										<input type="radio" id="t1" name="topic1" value="topic2">
+										<strong style="color:black">Topic 2: People should be legally required to get vaccines. </strong><br>
+									</td>
+								</tr>
+								<tr style="border: none;">
+									<td style="border: none;">
+										<input type="radio" id="t1" name="topic1" value="topic3">
+										<strong style="color: black">Topic 3: The development of artificial intelligence will help humanity. </strong><br>
+									</td>
+								</tr>
+							</table>
 						</td>
-					</tr>
-					<tr style="border: none;">
-						<td style="border: none;">
-							<input type="radio" id="t1" name="topic" value="topic2">
-							<strong style="color:black">Topic 2: People should be legally required to get vaccines. </strong><br>
-						</td>
-					</tr>
-					<tr style="border: none;">
-						<td style="border: none;">
-							<input type="radio" id="t1" name="topic" value="topic3">
-							<strong style="color: black">Topic 3: The development of artificial intelligence will help humanity. </strong><br>
+						<td>
+							<table style="border: none;">
+								<tr style="border: none;">
+									<td style="border: none;">
+										<input type="radio" id="t2" name="topic2" value="topic1">
+										<strong style="color: black">Topic 1: Climate change is the greatest threat facing humanity today. </strong><br>
+									</td>
+								</tr>
+								<tr style="border: none;">
+									<td style="border: none;">
+										<input type="radio" id="t2" name="topic2" value="topic2">
+										<strong style="color:black">Topic 2: People should be legally required to get vaccines. </strong><br>
+									</td>
+								</tr>
+								<tr style="border: none;">
+									<td style="border: none;">
+										<input type="radio" id="t2" name="topic2" value="topic3">
+										<strong style="color: black">Topic 3: The development of artificial intelligence will help humanity. </strong><br>
+									</td>
+								</tr>
+							</table>
 						</td>
 					</tr>
 				</table>
-				</form>     
+				</form> 
+				<div id = 'p2'>
+					Make sure that your voice is clear and at least on-par with the following sample audio clip. <br> <br>
+					<audio controls>
+						<source src="/images/sample.mp3" type="audio/mpeg">
+					</audio><br>
+				<hr>
+				</div>    
 			</div>
 
 			<button class="button_next" style="vertical-align:middle" onclick="next_p2()"><span>next</span></button>
@@ -367,13 +402,6 @@ div[disabled] {display: none;}
 		</div>      
 
 		<div id="page2" style="display: none;">
-			<div id = 'p2'>
-				Make sure that your voice is clear and at least on-par with the following sample audio clip. <br> <br>
-				<audio controls>
-					<source src="/images/sample.mp3" type="audio/mpeg">
-				</audio><br>
-			<hr>
-			</div>
 
 			<div id= 'p'>
 				<p id='top_name' style="font-size: 32px; color: black;"></p>
@@ -385,7 +413,24 @@ div[disabled] {display: none;}
 				<p id='recorded' style="font-size: 32px; color: red; visibility: hidden;">You're now being recorded</p>
 			</div>
 
-			<button id="p3" class="button_next" disabled="" style="vertical-align:middle" onclick="next_p3()"><span>next</span></button>
+			<button id="p3" class="button_next" disabled="" style="vertical-align:middle" onclick="next_p2r2()"><span>next</span></button>
+			<p><video style="visibility: hidden; display: none;"></video></p>
+			<br>
+        </div>
+
+
+		<div id="page2r2" style="display: none;">
+			<div id= 'p'>
+				<p id='top_name2' style="font-size: 32px; color: black;"></p>
+				<p style="font-size:20px; color:black;">We require you speak for atleast 3 minutes</p>               
+				<button id="btn-start-recording2" class="button_start"></button>
+				<button id="btn-stop-recording2" disabled="" style="display: none;" class="button_stop"><strong></strong></button>
+				<button id="again2" class="button_re" onclick="recordAgain2()" style="display: none;" disabled=""><strong></strong></button>
+				<div class="stopwatch"></div>
+				<p id='recorded' style="font-size: 32px; color: red; visibility: hidden;">You're now being recorded</p>
+			</div>
+
+			<button id="p32" class="button_next" disabled="" style="vertical-align:middle" onclick="next_p3()"><span>next</span></button>
 			<p><video style="visibility: hidden; display: none;"></video></p>
 			<br>
         </div>
@@ -2016,8 +2061,10 @@ div[disabled] {display: none;}
 
             var btnStartRecording = document.querySelector('#btn-start-recording');
             var btnStopRecording  = document.querySelector('#btn-stop-recording');
+			var btnStartRecording2 = document.querySelector('#btn-start-recording2');
+            var btnStopRecording2  = document.querySelector('#btn-stop-recording2');
             var videoElement      = document.querySelector('video');
-            
+            var rec_first = 0;
             var recorder;
 
             // reusable helpers
@@ -2354,9 +2401,15 @@ div[disabled] {display: none;}
 
             function debatename() {
                 var deb = document.debate;
-				var deb_name = deb.topic.value;
+				if(rec_first != 0){
+					deb_name = deb.topic2.value;
+				}
+				else{
+					deb_name = deb.topic1.value;
+				}
                 return deb_name;
             };
+
 
             var scode = generateRandomString();
             document.getElementById("d_surveycode").innerHTML = scode;
@@ -2383,7 +2436,7 @@ div[disabled] {display: none;}
             }
 
             function next_p2() {
-               if(document.debate.topic.value!="")
+               if(document.debate.topic1.value!="")
                 {
                 
                 var a = document.getElementById("page1");
@@ -2400,13 +2453,29 @@ div[disabled] {display: none;}
 				document.getElementById('top_name').innerHTML = texttoshow;
                 }
                else{
-                alert("please choose any one of the values");}
-				
+                alert("please choose any one of the values");}	
+            }
+
+			function next_p2r2() {
+				rec_first = 1;
+                var a = document.getElementById("page2");
+                a.style.display = 'none';
+                var b = document.getElementById("page2r2");
+                b.style.display = "block"
+				if(debatename() == 'topic1'){
+					texttoshow = "'Climate change is the greatest threat facing humanity today.'";
+				} else if(debatename() == 'topic2'){
+					texttoshow = "'People should be legally required to get vaccines.'";
+				} else if(debatename() == 'topic3'){
+					texttoshow = "'The development of artificial intelligence will help humanity.'";
+				}
+				document.getElementById('top_name2').innerHTML = texttoshow;	
+				StartRecording.disabled = false;
             }
 
 
             function next_p3() {
-                var a = document.getElementById("page2");
+                var a = document.getElementById("page2r2");
                 a.style.display = 'none';
                 var b = document.getElementById("page3");
                 b.style.display = "block";
@@ -2414,8 +2483,6 @@ div[disabled] {display: none;}
             }
 
             function next_p3a() {
-               
-                
                 var a = document.getElementById("page3");
                 a.style.display = 'none';
                 var b = document.getElementById("page3a");
@@ -2445,6 +2512,15 @@ div[disabled] {display: none;}
                 document.getElementById("again").disabled = true;
 				btnStartRecording.style.display = "";
 				document.getElementById("again").style.display = "none";
+            }
+
+			function recordAgain2() {
+                btnStopRecording2.disabled = true;
+                btnStartRecording2.disabled = false;
+                document.getElementById("p32").disabled = true;
+                document.getElementById("again2").disabled = true;
+				btnStartRecording2.style.display = "";
+				document.getElementById("again2").style.display = "none";
             }
 
             window.onscroll = function() {myFunction()};
@@ -2488,16 +2564,13 @@ var sticky = header.offsetTop;
                 
                 captureUserMedia(function(stream) {
                     mediaStream = stream;
-                    
                     videoElement.src = stream;
                     videoElement.play();
                     videoElement.muted = true;
                     videoElement.controls = false;
-                    
                     recorder = RecordRTC(stream, {
                         type: 'audio'
                     });
-                    
                     recorder.startRecording();
                     
                     // enable stop-recording button
@@ -2530,7 +2603,53 @@ var sticky = header.offsetTop;
 
 
 
-			class Stopwatch {
+
+
+			btnStartRecording2.onclick = function() {
+                btnStartRecording2.disabled = true;
+                
+                captureUserMedia(function(stream) {
+                    mediaStream = stream;
+                    videoElement.src = stream;
+                    videoElement.play();
+                    videoElement.muted = true;
+                    videoElement.controls = false;
+                    recorder = RecordRTC(stream, {
+                        type: 'audio'
+                    });
+                    recorder.startRecording();
+                    
+                    // enable stop-recording button
+
+				});
+				btnStartRecording2.style.display = "none";
+				btnStopRecording2.style.display = "";
+            	btnStopRecording2.disabled = false;
+                document.getElementById("recorded").style.visibility = "visible";
+				stopwatch.restart();
+            };
+
+
+            btnStopRecording2.onclick = function() {
+                btnStartRecording2.disabled = true;
+                btnStopRecording2.disabled = true;
+				btnStopRecording2.style.display = "none";
+                recorder.stopRecording(postFiles);
+                document.getElementById("p32").disabled = false;
+                document.getElementById("again2").disabled = false;
+				document.getElementById("again2").style.display = "";
+				document.getElementById("recorded").style.visibility = "hidden";
+				stopwatch.stop();
+				alert("Your recording will now be played, if you are satisfied with the recording press 'next', otherwise 'redo'.");
+            };
+
+            window.onbeforeunload = function() {
+                startRecording.disabled = false;
+            };
+
+
+
+class Stopwatch {
     constructor(display, results) {
         this.running = false;
         this.display = display;
